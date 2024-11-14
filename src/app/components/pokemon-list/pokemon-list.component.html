@@ -1,0 +1,17 @@
+<div>
+    <h1>Pokedex</h1>
+    <ul>
+        @if(pokemonCards$ | async; as pokemonCards) {
+        @for (pokemonCard of pokemonCards ; track $index) {
+            <li>
+                <p>{{ pokemonCard.id }}</p>
+                <p>{{ pokemonCard.name }}</p>
+                <img [src]="pokemonCard.images.small" alt="image de la carte">
+       </li>
+       }
+    }
+        @else {
+            <li>Chargement en cours...</li>
+        }
+    </ul>
+</div>
